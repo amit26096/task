@@ -1,0 +1,85 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">S.N</th>
+            <th scope="col">Name</th>
+            <th scope="col">Available units</th>
+            <th scope="col">Cost per unit</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        {{#each rows}}
+        <tr>
+            <th scope="row">{{this.id}}</th>
+            <td>{{this.name}}</td>
+            <td>{{this.available_stock}}</td>
+            <td>{{this.per_s_price}}</td>
+
+
+        </tr>
+        {{/each}}
+
+
+    </tbody>
+</table>
+
+<!-- Button trigger modal -->
+{{!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+</button> --}}
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Choose bank and Stock</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/" method="POST" novalidate>
+                    <div class="col-auto my-1">
+                        <label class="mr-sm-2" for="inlineFormCustomSelect">Bank</label>
+                        <select onchange="changed()" name="b_name" id="opt" class="custom-select mr-sm-2"
+                            id="inlineFormCustomSelect">
+                            <option selected>Choose your bank</option>
+                            {{#each rows}}
+                            <option value="{{this.id}}">{{this.name}}</option>
+                            {{!-- <option value="2">Two</option>
+                            <option value="3">Three</option> --}}
+                            {{/each}}
+
+                        </select>
+                    </div>
+
+                    <div class="mb-3 my-5">
+
+
+                        <label class="form-label">Units</label>
+                        <input name="num_share" type="number" class="form-control" id="exampleInputPassword1"
+                            max="{{this.available_stock}}">
+
+
+                    </div>
+
+
+
+                    {{!-- <a href="/insert" type="button" class="btn btn-primary">Submit</a> --}}
+                    <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="col-12 d-grid">
+    <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-dark">Purchase share</button>
+</div>

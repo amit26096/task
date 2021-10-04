@@ -1,0 +1,39 @@
+<div class="container my-4">
+    {{!-- <img src="pp.jpg" alt=""> --}}
+    <b>Name</b> : Amit <br>
+    <b>Mobile</b> : 9845426096<br>
+     <b>Address</b> : Simraungadh-7 Bara Nepal<br>
+    {{#each rows}}
+    <b>Balace till now</b> : {{this.amount}} <b>Out of </b> {{this.final}} <br>
+<script>
+    let amt = {{this.amount}};
+    let fin = {{this.final}};
+    let l_percent = ((fin-amt)/fin)*100;
+    let p_percent = ((amt-fin)/fin)*100;
+    if(amt < fin){
+        document.write('loss:  <b>'+(fin - amt)+'</b>');
+    }
+    else if (amt > fin){
+        document.write('profit:   <b>'+(amt - fin)+'</b>');
+
+    }
+    else{
+        document.write('No loss neither Profit, Both balanced');
+    }
+</script>
+
+    {{/each}}
+
+</div>
+
+<a href="/dash" class="btn btn-warning btn-sm col-15 d-grid">DashBoard</a>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,36 @@
+<h1 class="text-center">DashBoard</h1>
+
+<div>
+
+    <marquee direction="left">
+        <h3> Hi, Share that you bought are listed below.</h3>
+    </marquee>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">S.N</th>
+            <th scope="col">Bank Name</th>
+            <th scope="col">Cost/stock</th>
+            <th scope="col">Number of units</th>
+            <th scope="col">Total Amount</th>
+            <th scope="col">Date</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each rows}}
+        <tr>
+            <th scope="row">{{this.id}}</th>
+            <td>{{this.name}}</td>
+            <td>{{this.per_s_cost}}</td>
+            <td>{{this.stock_amt}}</td>
+            <td>{{this.amount}}</td>
+            <td>{{this.date}}</td>
+            <td><a href="/sell/{{this.id}}" class="btn btn-secondary btn-sm">Sell</a></td>
+        </tr>
+        {{/each}}
+        
+    </tbody>
+</table>
